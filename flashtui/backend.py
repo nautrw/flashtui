@@ -27,3 +27,13 @@ def read_deck_from_text(format: str, text: str) -> List[tuple]:
     split_list = text.split(separator)
     deck_pairs = pairwise(split_list)
     return list(deck_pairs)
+
+
+def add_deck_to_config(config_path: str, name: str, pairs: List[tuple]) -> None:
+    config = read_config(config_path)
+
+    with open(config_path, "w") as file:
+        config["decks"][name] = [{term.replace('\n', ''): definition.replace('\n', '')}
+                                 for term, definition in pairs]
+
+        json.dump(config, file)
