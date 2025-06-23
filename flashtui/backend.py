@@ -10,7 +10,7 @@ def create_config(path: str) -> None:
 
     with open(path, 'w+') as file:
         if not file.read():
-            file.write('{decks:{}}')
+            file.write('{"decks":{}}')
 
 
 def read_config(path: str) -> dict:
