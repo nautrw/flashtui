@@ -18,9 +18,8 @@ def read_config(path: str) -> dict:
     Returns the configuration data in the configuration file
     """
 
-    with open(path, 'r') as file:
-        file = file.read()
-        return json.loads(file)
+    with open(path, "r") as file:
+        return json.load(file)
 
 
 def read_deck_from_text(format: str, text: str) -> List[tuple]:
